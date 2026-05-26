@@ -1,3 +1,5 @@
+#day 11
+
 nums = [2, 3, 1, 2, 4, 3]
 target = 7
 #Output: 2  ([4, 3] has sum 7 with length 2)
