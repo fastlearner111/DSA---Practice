@@ -5,7 +5,7 @@ s = [1, 2, 3], [4, 5, 3]
 #Input: [1, 2, 3], [4, 5, 6]
 #Output: False
 
-s1 = [1,2,7]
+s1 = [1,2,3]
 s2 = [4,5,3]
 
 def share_element(s1,s2):
