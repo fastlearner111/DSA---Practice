@@ -1,5 +1,5 @@
-s1 = "listen"
-s2 = "silent"
+s1 = "anagram"
+s2 = "nagaram"
 
 # For this we are gonna need two variable one is gonna be nums1, and the other nums2
 # then we are gonna use two loops, one for nums1 and other for nums2, then lopp foreach if char in seen then +1
