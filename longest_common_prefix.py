@@ -2,10 +2,10 @@
 #string amongst an array of strings.
 #If there is no common prefix, return an empty string "".
 
-#strs = ["flower", "flow", "flight"]
+strs = ["flower", "flow", "flight"]
 #Output: "fl"
 
-strs = ["dog", "racecar", "car"]
+#strs = ["cap", "cat", "car"]
 #Output: ""
 
 #Steps: first create a variable, then pick one element from the list and comoate it to other, 
