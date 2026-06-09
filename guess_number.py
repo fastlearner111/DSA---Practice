@@ -24,6 +24,8 @@ def guess(num):
         return 1
     else:
         return 0
+    
+    
 def guessNumber(n):
       left = 1
       right = n 

@@ -26,5 +26,5 @@ def return_sum(ops):
             stack.pop()
         else:
             stack.append(int(op))
-    return stack
+    return sum(stack)
 print(return_sum(ops))

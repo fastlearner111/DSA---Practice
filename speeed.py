@@ -2,7 +2,7 @@ s =[1,3,5,7,9]
 target = 7
 def binary_search(nums, target):
     left = 0
-    right = len(s) - 1
+    right = len(nums) - 1
 
     while left <= right:
         mid = (left + right ) //2
@@ -12,7 +12,7 @@ def binary_search(nums, target):
             right = mid - 1
         elif nums[mid] < target:
             left = mid + 1
-    return left 
+    return -1
 
 
     
