@@ -10,12 +10,12 @@ def unique_element(nums):
 
     for numb in nums:
         if numb in seen:
-            seen.get(numb, 0) + 1
+            seen[numb] = seen.get(numb, 0) + 1
         else:
             seen[numb] = 1
 
-    for i, numb in seen.items():
-        if freq >  len(numb) / 2:
-            return numb
-    return -1
+    for numb, freq in seen.items():
+        if freq == 1:
+            result.append(numb)
+    return result
 print(unique_element(nums))

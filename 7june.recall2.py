@@ -2,7 +2,7 @@
 #at least twice in the array, and return false if every element
 #is distinct.
 #
-nums = [1,2,3,7]
+nums = [1,2,3,1]
 #Output: True
 
 #Input:  nums = [1,2,3,4]

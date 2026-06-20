@@ -12,7 +12,7 @@ def longest_prefix(strs):
 
     for i in range(len(strs[0])):
         for num in strs:
-            if num[i] != strs[0][i]:
+            if  i >= len(num) or num[i] != strs[0][i]:
                 return prefix
         prefix += strs[0][i]
     return prefix

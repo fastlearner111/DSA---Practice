@@ -5,7 +5,7 @@
 strs = ["flower", "flow", "flight"]
 #Output: "fl"
 
-#strs = ["cap", "cat", "car"]
+strs = ["cap", "cat", "car"]
 #Output: ""
 
 #Steps: first create a variable, then pick one element from the list and comoate it to other, 

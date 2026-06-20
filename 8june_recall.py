@@ -22,7 +22,7 @@ def binary_search(nums,target):
     while left <= right:
         mid = (left + right) // 2
         if nums[mid] ==  target:
-            return left
+            return mid
         elif nums[mid] > target:
             right = mid - 1
         elif nums[mid] < target:

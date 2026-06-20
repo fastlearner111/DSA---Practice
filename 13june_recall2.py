@@ -11,7 +11,7 @@ k = 3
 def contains_duplicate(nums,k):
     seen = {}
 
-    for i , number in enumerate(nums,k):
+    for i , number in enumerate(nums):
         if number in seen:
             if abs(i - seen[number]) <= k:
                 return True

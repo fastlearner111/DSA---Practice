@@ -14,7 +14,7 @@ def check_duplicate(nums,k):
 
     for i, number in enumerate(nums):
         if number in seen:
-            abs(i- seen[number]) <= k 
+          if  abs(i- seen[number]) <= k:
             return True
         
         seen[number] = i

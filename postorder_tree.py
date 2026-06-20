@@ -2,7 +2,7 @@
 #of its nodes' values.
 
 root = [1,2,3]
-#Output: [1,2,3]
+#Output: [2,3,1]
 #
 #Input:  root = []
 #Output: []

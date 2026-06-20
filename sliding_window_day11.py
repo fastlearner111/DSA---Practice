@@ -1,6 +1,6 @@
-nums = [2, 1, 5, 1, 3, 2]
+nums = [1,2,3,1]
 k = 3
-
+#Output: True
 #first create a function then for this problem
 # we need one current_window variable, one max_sum,
 # so first we find the sum, so we do this by current_window = sum(nums[0:k])

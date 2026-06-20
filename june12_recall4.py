@@ -12,6 +12,7 @@ def bad_version(version):
 def isbad_version(n, bad):
     left  = 1
     right = n
+    result = n
 
     while left <= right:
         mid = (left + right) // 2

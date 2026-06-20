@@ -24,6 +24,6 @@ def check_parenthses(s):
             stack.pop()
         else:
             stack.append(char)
-            return True
-    return []
+            
+    return not stack
 print(check_parenthses(s))

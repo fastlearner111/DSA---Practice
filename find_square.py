@@ -12,18 +12,18 @@ x = 8
 def square_root(x):
     left = 1
     right = x 
-    #result = 0
+    result = 0
 
     while left <= right:
         mid = (left + right) // 2
         if mid * mid == x:
-     #       result = mid
-            return True
+            result = mid
+            return mid
         elif mid * mid < x:
-      #      result = mid
+            result = mid
             left = mid + 1
         elif mid * mid > x:
             right = mid - 1
             
-    return False
+    return result
 print(square_root(x))
