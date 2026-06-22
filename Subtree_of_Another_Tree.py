@@ -48,15 +48,3 @@ subroot.right = TreeNode(2)
 
 print(isSubtree(root,subroot))
 
-root2 = TreeNode(3)
-root2.left = TreeNode(4)
-root2.right = TreeNode(5)
-root2.left.left = TreeNode(1)
-root2.left.right = TreeNode(2)
-root2.left.right.left = TreeNode(0)
-
-subroot2 = TreeNode(4)
-subroot2.left = TreeNode(1)
-subroot2.right = TreeNode(2)
-
-print(isSubtree(root2, subroot2))

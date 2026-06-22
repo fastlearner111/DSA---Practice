@@ -19,7 +19,7 @@ def diameter(root):
             return 0
         left = dfs(node.left)
         right = dfs(node.right)
-        res[0] = max(res[0], left + right + 1)
+        res[0] = max(res[0], left + right)
         return 1 + max(left,right)
     dfs(root)
     return res[0]

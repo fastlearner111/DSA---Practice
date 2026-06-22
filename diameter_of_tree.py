@@ -32,8 +32,4 @@ root.right = TreeNode(3)
 root.left.left = TreeNode(4)
 root.left.right = TreeNode(5)
 
-root2 = TreeNode(1)
-root2.left = TreeNode(2)
-print(diameter(root2))
-
 print(diameter(root))
