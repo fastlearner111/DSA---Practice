@@ -19,4 +19,4 @@ def group_angram(strs):
             result[key] = []
         result[key]. append(s)
     return list(result.values())
-print(group_angram(strs))
+print(group_angram(strs))          # time On(n * k), space : O(n)
