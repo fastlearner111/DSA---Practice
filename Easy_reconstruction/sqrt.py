@@ -23,8 +23,8 @@ def sqr(x):
             return mid
         elif mid * mid < x:
             result = mid
-            left = left + 1
+            left = mid + 1
         elif mid * mid > x:
-            right = right - 1
+            right = mid - 1
     return result
 print(sqr(x))
