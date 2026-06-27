@@ -11,28 +11,28 @@ s2 = "eidbaooo"
 def isPermutation(s1,s2):
     left = 0
     seen = {}
-    result = 0
 
-    if len(s1) > len(s2):
+    if len(s1) > len(s2):   # this one is the base case
         return False
     
     count1 = {}
     count2 = {}
 
     for c in s1:
-        count1[c] = count1.get(c,0) + 1
-    for c in s2[:len(s1)]:
-        count2[c] = count2.get(c,0) + 1
-    if count1 == count2:
+        count1[c] = count1.get(c,0) + 1 # we are adding this in count1
+    for c in s2[:len(s1)]: # dont know
+        count2[c] = count2.get(c,0) + 1 # we are adding in count2
+        
+    if count1 == count2: # checking if coun1 == count2
         return True
     
-    for right in range(len(s1), len(s2)):
-        count2[s2[right]] = count2.get(s2[right], 0) + 1
-        left = s2[right - len(s1)]
-        count2[left] -= 1
-        if count2[left]  == 0:
-            del count2[left]
-        if count1 == count2:
-            return True
-    return False
+    for right in range(len(s1), len(s2)): # this is the main sliding window
+        count2[s2[right]] = count2.get(s2[right], 0) + 1 # add to the right
+        left = s2[right - len(s1)] # remove left
+        count2[left] -= 1 # remove
+        if count2[left]  == 0:# not sure
+            del count2[left]# not sure
+        if count1 == count2:# not sure
+            return True# not sure
+    return False                    # not sure
 print(isPermutation(s1,s2))
