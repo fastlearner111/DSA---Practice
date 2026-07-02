@@ -36,9 +36,9 @@ def rotated_sorted(nums):
 
         if nums[left] == nums[right]:
             return nums[left]
-        elif nums[mid] > nums[left]:
+        elif nums[mid] > nums[right]:
             left = mid + 1
-        elif nums[mid] < nums[right]:
+        elif nums[mid] < nums[left]:
             right = mid
     return nums[left]
 print(rotated_sorted(nums))

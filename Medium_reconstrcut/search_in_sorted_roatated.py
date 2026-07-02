@@ -20,13 +20,12 @@ target = 0
 # pattern is Binary Search
 # 
 
-def search_index(nums, target):
+def sorted_rotated(nums, target):
     left = 0
     right = len(nums) - 1
 
     while left <= right:
         mid = (left + right) // 2
-
 
         if nums[mid] == target:
             return mid
@@ -41,4 +40,6 @@ def search_index(nums, target):
             else:
                 right = mid - 1
     return -1
-print(search_index(nums,target))
+print(sorted_rotated(nums, target)) 
+
+                

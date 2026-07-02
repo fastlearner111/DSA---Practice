@@ -19,7 +19,7 @@ def rotated_array(nums):
     right = len(nums) - 1
     
 
-    while left < right:
+    while left <= right:
         mid = (left + right) // 2
         if nums[left] == nums[right]:
             return nums[left]

@@ -15,7 +15,7 @@ target = 3
 # first we need to two poniters left and right and then 
 # then we need m and n, which is the length of matrix, one for row and other for column
 # the we use while loop
-# first we find mid , sum variabel where we make this eaaier to solve ,
+# first we find mid , after that we use row and column variable we initialize which line is which,
 # then == then result = mid, return True, else > then right = mid - 1
 # else < left = mid - 1, then return False outside this then print
 
