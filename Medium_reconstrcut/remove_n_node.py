@@ -1,5 +1,5 @@
-#Given the head of a linked list, remove the nth node 
-#from the end of the list and return the head.
+#Given head of linked list, remove the nth node from the end.
+#Return the head.
 #
 head = [1,2,3,4,5]
 n = 2
@@ -10,13 +10,6 @@ n = 2
 #
 #Input:  head = [1,2], n = 1
 #Output: [1]
-
-# Pattern - Linked List
-#Data Structure -  one pointer
-# Approach -  we need to use a pointer to find where the the n is
-# then remove that , and then merge the list again
-# also we need a dummy list
-# Big O - On, O1
 
 class ListNode:
     def __init__(self, val = None, next = None):
@@ -50,7 +43,7 @@ n2.next = n3
 n3.next = n4
 n4.next = n5
 
-head =remove(n1, 2)
+head = remove(n1, 2)
 current = head
 
 while current:

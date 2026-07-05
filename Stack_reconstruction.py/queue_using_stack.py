@@ -14,14 +14,14 @@
 #- You may only use standard stack operations (push to top, peek/pop from top, size, is empty)
 #- Must implement using exactly two stacks
 
-
 class MyQueue:
     def __init__(self):
         self.stack1 = []
         self.stack2 = []
-    def push(self,x):
-        self. stack1.append(x)
 
+    def push(self,x):
+        self.stack1.append(x)
+    
     def pop(self):
         if not self.stack2:
             while self.stack1:
@@ -35,7 +35,7 @@ class MyQueue:
         return self.stack2[-1]
     
     def empty(self):
-        return not self.stack1 and not self.stack2
+        return  len(self.stack1) == 0 and len(self.stack2) == 0
     
 q = MyQueue()
 q.push(1)
@@ -44,5 +44,3 @@ print(q.peek())
 print(q.pop())
 print(q.empty())
         
-
-    

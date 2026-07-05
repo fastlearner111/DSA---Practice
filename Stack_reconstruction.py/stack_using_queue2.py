@@ -10,31 +10,38 @@
 #[[], [1], [2], [], [], []]
 #Output: [null, null, null, 2, 2, False]
 
+
+#Pattern - Stack
+# Approach - 
+# Data Strucuture = 
+# big O = On, On
+
 from collections import deque
 
 class MyStack:
     def __init__(self):
         self.q = deque()
 
-    def push(self, x):                       #3# def push(slef,x): self.q.append(x) for i in range(self.q) - 1)
-        self.q.append(x)                      # self.q.append(self.q.popleft())
+    
+    def push(self, x):
+        self.q.append(x)
         for i in range(len(self.q) - 1):
             self.q.append(self.q.popleft())
-
+    
     def pop(self):
         return self.q.popleft()
 
     def top(self):
         return self.q[0]
-
+    
     def empty(self):
         if self.q == []:
             return True
         return False
 
-stack = MyStack()
-stack.push(1)
-stack.push(2)
-print(stack.top())
-print(stack.pop())
-print(stack.empty())
+s = MyStack()
+s.push(1)
+s.push(2)
+print(s.top())
+print(s.pop())
+print(s.empty())
