@@ -20,7 +20,7 @@ speed = [2,4,1,1,3]
 #Output: 1
 
 
-def carfleet(postion, speed, target):
+def carfleet(position, speed, target):
     pairs = sorted(zip(position, speed), reverse = True)
     stack = []
 

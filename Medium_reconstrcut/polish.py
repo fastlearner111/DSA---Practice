@@ -7,7 +7,7 @@ tokens = ["2","1","+","3","*"]
 #Input:  tokens = ["4","13","5","/","+"]
 #Output: 6
 
-def polish(tokens):
+def reverse_polish(tokens):
     stack = []
 
     for token in tokens:
@@ -26,5 +26,4 @@ def polish(tokens):
             elif token == "/":
                 stack.append(int(left / right))
     return stack[-1]
-print(polish(tokens))
-        
+print(reverse_polish(tokens))
