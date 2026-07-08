@@ -12,7 +12,7 @@ s = ["h","e","l","l","o"]
 # Dict = two pointer
 # approach - we need to reverse the left side and then reversre the right side and set it equal
 # then move the pointer and then return it
-# Big O - On, On
+# Big O - On, O1
 
 def reverse_string(s):
     left = 0
