@@ -10,7 +10,7 @@ def fleet(target, position, speed):
     stack = []
 
     for pos, spd in pair:
-        time = (time - pos) / spd
+        time = (target - pos) / spd
         if not stack or time > stack[-1]:
             stack.append(time)
     return len(stack)
