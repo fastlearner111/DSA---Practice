@@ -1,15 +1,8 @@
-#Given root of binary tree, count the number of "good" nodes.
-#A node is good if the path from root to that node has no node 
-#with a greater value than this node.
+#Count nodes where path from root has no node greater than this node.
 #
 #Input:  root = [3,1,4,3,null,1,5]
-#Output: 4  (nodes: 3, 4, 3, 5)
-#
-#Input:  root = [3,3,null,4,2]
-#Output: 3
-#
-#Input:  root = [1]
-#Output: 1
+#Output: 4
+
 
 class TreeNode:
     def __init__(self, val = 0, left = None, right = None):
@@ -17,24 +10,28 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def countnodes(root):
-    def dfs(node, maxvalue):
+def count_node(root):
+    def dfs(node, maxValue):
         if not node:
             return 0
         
-        good = 1 if node.val >= maxvalue else 0
-        maxvalue = max(maxvalue, node.val)
+        good = 1 if node.val >= maxValue else 0
+        maxValue = max(maxValue,node.val)
 
-        left = dfs(node.left, maxvalue)
-        right = dfs(node.right, maxvalue)
+        left = dfs(node.left, maxValue)
+        right = dfs(node.right, maxValue)
+
         return good + left + right
-    return dfs(root,float('-inf'))
+    return dfs(root, float('-inf'))
 
 root = TreeNode(3)
 root.left = TreeNode(1)
 root.right = TreeNode(4)
 root.left.left = TreeNode(3)
-root.right.left = TreeNode(1)
+root.right.left = TreeNode(1) 
 root.right.right = TreeNode(5)
 
-print(countnodes(root))
+print(count_node(root))
+        
+    
+

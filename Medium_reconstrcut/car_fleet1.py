@@ -10,13 +10,13 @@ speed = [2,4,1,1,3]
 # Data Structure - 
 # Big O -On, On
 
-def car_fleet(target,position,speed):
+def car_fleet(target, position, speed):
     stack = []
-    pairs = sorted(zip(position,speed), reverse = True)
+    pair = sorted(zip(position, speed), reverse= True)
 
-    for pos, spd in pairs:
-        time  = (target - pos) / spd
+    for pos, spd in pair:
+        time = (target - pos) / spd
         if not stack or time > stack[-1]:
             stack.append(time)
     return len(stack)
-print(car_fleet(target, position, speed, ))
+print(car_fleet(target, position,speed))
