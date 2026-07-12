@@ -15,18 +15,18 @@ class TreeNode:
         self.right = right
 
 def k_smallest(root,k):
-    inorder = []
+    inorder = [] 
 
     def dfs(node):
         if not node:
             return 
         
-        dfs(node.left)
-        inorder.append(node.val)
-        dfs(node.right)
+        dfs(node.left) # look at left value
+        inorder.append(node.val) # append that left value in the inorder
+        dfs(node.right) # look at the right values
     
-    dfs(root)
-    return inorder[k - 1]
+    dfs(root) #not sure wjat this does
+    return inorder[k - 1]  #same with this
 
 root = TreeNode(3)
 root.left = TreeNode(1)

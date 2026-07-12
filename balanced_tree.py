@@ -9,30 +9,31 @@
 #Output: False
 
 
-class ListTree:
+class TreeNode:
     def __init__(self, val = 0, left = None, right = None):
         self.val = val
         self.left = left
         self.right = right
 
-def height(root):
-        if not root:
-            return 0
-        left = height(root.left)
-        right = height(root.right)
-        if left == -1 or right == -1:
-             return -1
-        if abs(left - right) > 1:
-             return -1
-        return 1 + max(left,right)
+def dfs(root):
+    if not root:
+        return (True, 0)
+    
+    left_balanced, left_height = dfs(root.left)
+    right_balanced, right_height = dfs(root.right)
 
-def isBalanced(root):
-    return height(root) != -1
+    balanced = (
+        left_balanced and
+        right_balanced and
+        abs(left_height - right_height) <= 1
+    )
 
-root = ListTree(3)
-root.left = ListTree(9)
-root.right = ListTree(20)
-root.right.left = ListTree(15)
-root.right.right = ListTree(7)
+    height = 1 + max(left_height, right_height)
+    return (balanced, height)
 
-print(isBalanced(root))
+root = TreeNode(3)
+root.left = TreeNode(9)
+root.right = TreeNode(20)
+root.right.left = TreeNode(15)
+root.right.right = TreeNode(7)
+print(dfs(root)[0])
