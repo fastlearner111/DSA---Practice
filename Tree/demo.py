@@ -5,7 +5,7 @@
 #The path may or may not pass through the root.
 #
 #The length of a path is measured in number of edges, not nodes.
-root = [1,2,3,4,5]
+#root = [1,2,3,4,5]
 #Output: 4
 #
 #Input:  root = [1,2]
@@ -18,20 +18,22 @@ class TreeNode:
         self.right = right
 
 def diameter(root):
+    diameter = 0
+
     def dfs(node):
+        nonlocal diameter
         if not node:
-            return (0,0)
-        
-        left_diameter, left_height = dfs(node.left)
-        right_diameter, right_height = dfs(node.right)
+            return 0
 
-        height = 1 + max(left_height, right_height)
+        left_height = dfs(node.left)
+        right_height = dfs(node.right)
 
-        diameter_through_node  = left_height + right_height
-        diameter = max(left_diameter, right_diameter, diameter_through_node)
+        diameter = max(diameter, left_height + right_height)
 
-        return(diameter,height)
-    return dfs(root)[0]
+        return 1 + max(left_height,right_height)
+    
+    dfs(root)
+    return diameter
 
 root = TreeNode(1)
 root.left = TreeNode(2)
