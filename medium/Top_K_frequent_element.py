@@ -8,15 +8,24 @@ k = 2
 #Input:  nums = [1], k = 1
 #Output: [1]
 
-def top_frequent(nums,k):
-    count = {}
+from collections import Counter
 
-    for number in nums:
-        if number in count:
-            count[number] += 1
-        else:
-            count[number] = 1
+def topk(nums, k):
 
-    return sorted(count, key = lambda x:count[x], reverse = True)[:k]
+    freq = Counter(nums)
 
-print(top_frequent(nums,k))
+    buckets = [[] for _ in range(len(nums) + 1)]
+
+    for num, count in freq.items():
+        buckets[count].append(num)
+
+    
+    result = []
+
+    for i in range(len(buckets) - 1, -1, -1):
+        for number in buckets[i]:
+            result.append(number)
+            if len(result) == k:
+                return result
+            
+print(topk(nums, k))

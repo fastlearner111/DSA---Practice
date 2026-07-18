@@ -37,21 +37,22 @@ def buildTree(preorder, inorder):
     mid = inorder.index(root_val)
 
     root.left = buildTree(preorder[1:mid+1], inorder[:mid])
-    root.right = buildTree(preorder[mid+1:], inorder[mid+1])
+    root.right = buildTree(preorder[mid+1:], inorder[mid+1:])
 
     return root
 
 def printTree(root):
     if not root:
-        return 
-    
+        return
     print(root.val, end = "")
     printTree(root.left)
     printTree(root.right)
+
 
 preorder = [3,9,20,15,7]
 inorder = [9,3,15,20,7]
 
 root = buildTree(preorder, inorder)
-print("Preorder of constructed Tree")
+
+print("Preorder of constructed tree:")
 printTree(root)
