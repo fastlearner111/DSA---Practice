@@ -1,25 +1,26 @@
-#105. Construct Binary Tree from Preorder and Inorder Traversal
+#Serialize and Deserialize Binary Tree
 #
-#Given two integer arrays preorder and inorder where preorder is 
-#the preorder traversal of a binary tree and inorder is the 
-#inorder traversal of the same tree, construct and return the binary tree.
+#Serialization is the process of converting a data structure
+#or object into a sequence of bits so that it can be stored
+#in a file or memory buffer, or transmitted across a network
+#connection link to be reconstructed later in the same or another computer environment.
+#Design an algorithm to serialize and deserialize a binary tree.
+#There is no restriction on how your serialization/deserialization 
+#algorithm should work. You just need to ensure that a binary tree can
+#be serialized to a string and this string can be deserialized to the original tree structure.
+#
+#Clarification: The input/output format is the same as how LeetCode
+#serializes a binary tree. You do not necessarily need to follow 
+#this format, so please be creative and come up with different approaches yourself.
 #
 #Example 1:
-#Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
-#Output: [3,9,20,null,null,15,7]
+#Input: root = [1,2,3,null,null,4,5]
+#Output: [1,2,3,null,null,4,5]
 #
 #Example 2:
-#Input: preorder = [-1], inorder = [-1]
-#Output: [-1]
-# 
-#Constraints:
-#1 <= preorder.length <= 3000
-#inorder.length == preorder.length
-#-3000 <= preorder[i], inorder[i] <= 3000
-#preorder and inorder consist of unique values.
-#Each value of inorder also appears in preorder.
-#preorder is guaranteed to be the preorder traversal of the tree.
-#inorder is guaranteed to be the inorder traversal of the tree.
+#Input: root = []
+#Output: []
+
 
 class TreeNode:
     def __init__(self, val = 0, left = None, right = None):
@@ -27,31 +28,22 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def buildTree(preorder, inorder):
-    if not preorder or not inorder:
-        return None
+class Codec:
+    def serialize(self, root):
+        def dfs(node):
+            if not node:
+              vals.append("null")
+              return 
+            vals.append(str(node.val))
+            dfs(node.left)
+            dfs(node.right)
+
+            vals = []
+            dfs(root)
+            return ",". join(vals)
+        
+    def deserialize(self,data):
+        def dfs():
+            val = next(vals)
+                
     
-    root_val = preorder[0]
-    root = TreeNode(root_val)
-
-    mid = inorder.index(root_val)
-
-    root.left = buildTree(preorder[1:mid+1], inorder[:mid])
-    root.right = buildTree(preorder[mid+1:], inorder[mid+1])
-
-    return root
-
-def printTree(root):
-    if not root:
-        return 
-    
-    print(root.val, end = "")
-    printTree(root.left)
-    printTree(root.right)
-
-preorder = [3,9,20,15,7]
-inorder = [9,3,15,20,7]
-
-root = buildTree(preorder, inorder)
-print("Preorder of constructed Tree")
-printTree(root)
