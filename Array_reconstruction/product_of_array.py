@@ -14,16 +14,18 @@ nums = [1,2,3,4]
 # Big O - O(n) time, O(1) space (output array doesn't count
 
 #  
-def product_array(nums):
-    n = len(nums)
-    output = [1] * n
+def product_except_self(nums):
+    result = [1] * len(nums)
 
-    for i in range(1,n):
-        output[i] = output[i - 1] * nums[i - 1]
+    prefix = 1
+    for i in range(len(nums)):
+        result[i] = prefix
+        prefix += nums[i]
 
     suffix = 1
-    for i in range(n - 1, -1, -1):
-        output[i] *= suffix
-        suffix = suffix * nums[i]
-    return output
-print(product_array(nums))
+    for i in range(len(nums) -1, -1, -1):
+        result[i] *= suffix
+        suffix *= nums[i]
+
+    return result
+print(product_except_self(nums))

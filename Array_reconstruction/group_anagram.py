@@ -19,10 +19,10 @@ strs = ["eat","tea","tan","ate","nat","bat"]
 def group_anagram(strs):
     result = {}
 
-    for char in strs:
-        key = tuple(sorted(char))
-        if key not in result:
-            result[key] = []
-        result[key].append(char)
-    return list(result.values())
+    for char in strs: # we loop this until the list of strig is over
+        key = tuple(sorted(char)) # we sort the char, sorting gives the answer in list and we want the answer in set so wrap it in tuple
+        if key not in result: # if the sorted value i.e key not in result 
+            result[key] = [] #then the key is empty
+        result[key].append(char) # we append those value into those empty list
+    return list(result.values()) # and then return the values in list
 print(group_anagram(strs))
