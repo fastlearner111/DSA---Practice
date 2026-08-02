@@ -23,3 +23,4 @@ def isheight(height):
             right -= 1
     return result
 print(isheight(height))
+
