@@ -3,7 +3,7 @@ class Solution:
 
         graph = {i: [] for i in range(numCourses)}
         for a, b in prerequisities:
-            graph[b].append[a]
+            graph[b].append(a)
 
         visited = set()
         path = set()
