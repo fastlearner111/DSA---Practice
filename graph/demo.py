@@ -1,42 +1,27 @@
-numCourses = 3
-prerequisites = [[1,0]]
-#Output: [0,1,2]
-
 class Solution:
-    def findOrder(self, numCourses, prerequisites):
-        graph = {i: [] for i in range(numCourses)}
-        for course, pre in prerequisites:
-            graph[pre].append(course)
+    def number_of_island(self, grid):
 
-            visiting = set()
-            visited = set()
+        if not grid:
+            return 0
 
-            order = []
+        rows, cols = len(grid), len(grid[0])
+        count = 0
 
-            def dfs(node):
-                if not dfs(node):
-                    return False
+        def dfs(r,c):
+            if r < 0 or c < 0 or r >= rows or c >= cols or grid[r][c] == "0":
+                return 
 
-                if node in visiting:
-                    return False
-                if node in visited:
-                    return True
+            grid[r][c] = "0"
 
-                visiting.add(node)
+            dfs(r + 1, c)
+            dfs(r - 1, c)
+            dfs(r, c + 1)
+            dfs(r, c - 1)
 
-                for nei in graph[course]:
-                    if not dfs(nei):
-                        return False
-
-                visiting.remove(node)
-                visited.add(node)
-
-                order.append(node)
-
-                return True
-
-            for course in range(numCourses):
-                if not dfs(course):
-                    return []
-
-            return order[::-1]
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == "1":
+                    count += 1
+                    dfs(r,c)
+        return count
+ 

@@ -7,15 +7,15 @@ import heapq
 class Solution:
     def lastStoneWeight(self, stones):
 
-        # Python only has min-heap, so we invert values to simulate max-heap
-        max_heap = [-s for s in stones]
-        heapq.heapify(max_heap)
+        stones = [-s for s in stones]
+        heapq.heapify(stones)
 
-        while len(max_heap) > 1:
-            first = -heapq.heappop(max_heap)  # heaviest
-            second = -heapq.heappop(max_heap) # second heaviest
+        while len(stones) > 1:
+            first = -heapq.heappop(stones)
+            second = -heapq.heappop(stones)
 
             if first != second:
-                heapq.heappush(max_heap, -(first - second))
+                diff = first - second
+                heapq.heappush(stones, -diff)
 
-        return -max_heap[0] if max_heap else 0
+        return -stones[0] if stones else 0
