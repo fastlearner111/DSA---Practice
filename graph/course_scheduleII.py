@@ -5,39 +5,32 @@ prerequisites = [[1,0]]
 class Solution:
     def findOrder(self, numCourses, prerequisites):
 
-        graph = {i: [] for i in range(numCourses)}
-        for course, pre in prerequisites:
-            graph[pre].append(course)
+        adj = [[] for _ in range(numCourses)]
+        for course, prepreq in prerequisites:
+            adj[prepreq].append(course)
 
-        visiting = set()
-        visited = set()
-
-        order = []
+        state = [0] * numCourses
+        result = []
 
         def dfs(node):
-
-            if node in visiting:
+            if state[node] == 1:
                 return False
-
-            if node in visited:
+            if state[node] == 2:
                 return True
 
-            visiting.add(node)
+            state[node] = 1
 
-            for nei in graph[node]:
-                if not dfs(nei):
+            for neighbor in adj[node]:
+                if not dfs(neighbor):
                     return False
 
-            visiting.remove(node)
-            visited.add(node)
-
-            order.append(node)
-
+            state[node] = 2
+            result.append(node)
             return True
 
-        for course in range(numCourses):
-            if not dfs(course):
-                return []
+        for i in range(numCourses):
+            if state[i] == 0:
+                if not dfs(i):
+                    return []
 
-        return order[::-1]
-                
+        return result[::-1]
