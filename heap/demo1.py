@@ -4,18 +4,15 @@ stones = [2,3,6,2,4]
 
 import heapq
 
-class Solution:
-    def lastStoneWeight(self, stones):
+def laststone(self,stones):
+    stones = [-s for s in stones]
+    heapq.heapify(stones)
 
-        stones = [-s for s in stones]
-        heapq.heapify(stones)
+    while len(stones) > 1:
+        stone1 = -heapq.heappop(stones)
+        stone2 = -heapq.heapop(stones)
 
-        while len(stones) > 1:
-            first = -heapq.heappop(stones)
-            second = -heapq.heappop(stones)
+        if stone1 != stone2:
+            heapq.heappush(stones, -(stone1 - stone2))
 
-            if first != second:
-                diff = first - second
-                heapq.heappush(stones, -diff)
-
-        return -stones[0] if stones else 0
+    return -stones[0] if stones else 0 
