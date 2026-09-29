@@ -32,3 +32,4 @@ class Solution:
                 prev_end = end
                 
         return removed  
+                        
