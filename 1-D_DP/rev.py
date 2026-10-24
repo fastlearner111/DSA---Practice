@@ -1,0 +1,12 @@
+k = 3
+
+from collections import Counter
+class Solution:
+    def topKFrequent(self, words):
+        count = Counter(words)
+        
+        # Sort keys: primary key is frequency descending (-freq), secondary key is alphabetical (word)
+        sorted_words = sorted(count.keys(), key=lambda w: (-count[w], w))
+        
+        # Return the top k elements
+        return sorted_words[:k]
