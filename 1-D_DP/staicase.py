@@ -1,0 +1,17 @@
+n =4
+
+class Solution:
+    def staircase(self, n):
+        if n <= 2:
+            return
+
+        prev1 = 1
+        prev2 = 2
+
+        for i in range(3, n + 1):
+            current = prev1 + prev2
+
+            prev1 = prev2
+            prev2 = current
+
+        return prev2
