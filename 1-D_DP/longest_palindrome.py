@@ -19,11 +19,12 @@ class Solution:
         for i in range(len(s)):
             len1 = expand_from_center(i,i)
             len2 = expand_from_center(i, i + 1)
-            current = max(len1, len2)
+            
+            current_max = max(len1, len2)
 
             if current_max > max_len:
                 max_len = current_max
-                start = i - (current - 1) // 2
+                start = i - (current_max - 1) // 2
 
         return s[start : start +  max_len]
 
